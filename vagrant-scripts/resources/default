@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+    ServerAdmin mtrognon@commonhelp.it
+    ServerName pulmanitalia.devserver.commonhelp.it
+    DocumentRoot /var/www/app
+    <Directory /var/www/app>
+            AllowOverride None
+            Require all granted
+            Allow from All
+    </Directory>
+    ErrorLog /var/log/apache2/error.log
+    CustomLog /var/log/apache2/access.log combined
+</VirtualHost>
+<VirtualHost *:80>
+    ServerAdmin mtrognon@commonhelp.it
+    ServerName devserver.commonhelp.it
+    DocumentRoot /var/www/template
+    <Directory /var/www/template>
+            AllowOverride None
+            Require all granted
+            Allow from All
+    </Directory>
+</VirtualHost>
