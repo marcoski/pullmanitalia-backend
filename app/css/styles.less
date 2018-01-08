@@ -117,16 +117,23 @@
   cursor: default;
 }
 
-.box-header > .box-tools{
-  position: static;
-  margin-left: 10px;
-  float: right;
-}
+.box-header {
 
-.box-header > .box-tools-absolute{
-  position: absolute;
-  right: 10px;
-  top: 5px;
+  .box-tools-container{
+    float: right;
+  }
+
+  .box-tools {
+    position: static;
+    margin-left: 10px;
+    float: right;
+  }
+
+  .box-tools-absolute{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
 }
 
 
@@ -165,4 +172,16 @@ a.file-download{
 
 .table > tbody > tr > td{
   vertical-align: middle;
+}
+
+.table > thead > tr > th{
+  &.sortable{
+    cursor: pointer;
+  }
+
+  i.fa{
+    display: block;
+    float: right;
+    margin-top: 5px;
+  }
 }

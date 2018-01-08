@@ -1,4 +1,11 @@
-define(['backbone.marionette', 'backbone.radio'], function(Marionette, Radio){
+define([
+    'backbone.marionette',
+    'backbone.radio',
+    'layouts/RegistryLayout',
+    'views/registry/AddressBookView',
+    'views/registry/SuppliersView'
+], function(Marionette, Radio, RegistryLayout, AddressBookView, SuppliersView){
+    'use strict';
 
     var RegistryContoller = Marionette.Object.extend({
 
@@ -9,6 +16,17 @@ define(['backbone.marionette', 'backbone.radio'], function(Marionette, Radio){
         },
 
         list: function(action){
+            var listView;
+            switch (action){
+                case 'suppliers':
+                    listView = new SuppliersView();
+                    break;
+                case 'address_book':
+                    listView = new AddressBookView();
+                    break;
+            }
+            var layout = new RegistryLayout({action: action, listView: listView});
+            layout.render();
             console.log('List all contacts for: '+action);
         }
     });

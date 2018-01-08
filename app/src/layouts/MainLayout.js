@@ -1,10 +1,13 @@
 define([
+    'backbone',
     'backbone.marionette',
     'underscore',
     'views/HeaderView',
     'views/FooterView',
-    'views/SidebarView'
-], function(Marionette, _, HeaderView, FooterView, SidebarView){
+    'views/SidebarView',
+    'backbone.modal',
+    'backbone.marionette.modals'
+], function(Backbone, Marionette, _, HeaderView, FooterView, SidebarView){
     'use strict';
     
     return Marionette.View.extend({
@@ -15,7 +18,11 @@ define([
             header: ".main-header",
             sidebar: ".main-sidebar",
             content: ".content-wrapper",
-            footer: ".main-footer"
+            footer: ".main-footer",
+            modals: {
+                selector: '.modal-container',
+                regionClass: Backbone.Marionette.Modals
+            }
         },
 
         onRender: function(){

@@ -19,6 +19,7 @@ define([
 
     mainApp.static.mobile = isMobile();
     mainApp.static.Settings = window.Settings;
+    mainApp.static.modalsRegion = null;
 
     mainApp.on('start', function() {
         if (Backbone.history) Backbone.history.start();

@@ -1,4 +1,6 @@
 define(['backbone.marionette', 'backbone.radio', 'routers/RegistryRouter'], function(Marionette, Radio, RegistryRouter){
+    'use strict';
+
     return Marionette.Application.extend({
 
         action: null,
@@ -17,8 +19,8 @@ define(['backbone.marionette', 'backbone.radio', 'routers/RegistryRouter'], func
         },
 
         onStart: function(){
-            var router = new RegistryRouter();
             console.log('Start Registry Application');
+            var router = new RegistryRouter();
             this.channel.trigger('registry:list', this.action);
         }
     });

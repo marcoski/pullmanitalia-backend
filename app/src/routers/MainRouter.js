@@ -1,13 +1,15 @@
 define([
     'backbone.marionette',
     'layouts/MainLayout',
-    'routers/RegistryApplication'
-], function(Marionette, MainLayout, RegistryApplication){
+    'routers/RegistryApplication',
+    'Application'
+], function(Marionette, MainLayout, RegistryApplication, Application){
     'use strict';
 
     var MainController = Marionette.Object.extend({
         initialize: function(){
             var layout = new MainLayout();
+            Application.static.modalsRegion = layout.getRegion('modals');
             layout.render();
             this.options.layout = layout;
         },

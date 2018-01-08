@@ -1,10 +1,10 @@
 {
-  "name": "IntegratiCRM",
+  "name": "PulmanItalia",
   "version": "0.0.1",
-  "description": "IntegratiCRM Application per Appalti Inegrati S.R.L",
+  "description": "PulmanItalia portale di ricerca viaggio autobus",
   "repository": {
     "type": "git",
-    "url": "https://git.commonhelp.it/AppaltiIntegrati/IntegratiCrmFrontend.git"
+    "url": "https://git.commonhelp.it/GreenTour/pulmanitalia-frontend"
   },
   "devDependencies": {
     "grunt": "~1.0.1",
