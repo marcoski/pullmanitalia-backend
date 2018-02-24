@@ -1,0 +1,21 @@
+/*
+ * Pullman Italia - SCSS
+ * @version v1.0.0
+ * Copyright (c) 2017 Commonhelp.it Marco Trognoni
+ */
+
+/* Import Font Awesome icon set */
+$fa-font-path: '~font-awesome/fonts';
+@import "~font-awesome/css/font-awesome.min.css";
+
+/* Import Bootstrap Vue Styles */
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
+
+// Override Bootstrap variables
+@import "boostrap_variables";
+
+// Import bootstrap source files
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Import core styles
+@import "core/core";

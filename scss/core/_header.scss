@@ -1,0 +1,47 @@
+.header{
+  .app-navbar{
+    padding-bottom: 0;
+    border-bottom: 2px solid black;
+    .app-mainnav{
+      .nav-item{
+        &:first-child{
+          margin-left: 0;
+        }
+        background-color: $body-bg;
+        margin-left: 1rem;
+        text-align: left;
+
+        @each $color, $value in $theme-colors {
+          &.border-#{$color} {
+            a.nav-link.active {
+              border-color: $value !important;
+            }
+          }
+        }
+
+        a.nav-link{
+          &.active{
+            color: $white;
+            background-color: $gray-700;
+            border-color: $gray-700;
+          }
+          i{
+            margin-left: auto;
+            padding-top: .25rem;
+          }
+          display: flex;
+          flex-flow: row nowrap;
+          font-size: 1.25rem;
+          width: 12rem;
+          color: black;
+          @include borders($main-nav-borders);
+          border-bottom: 0;
+        }
+      }
+    }
+
+    .app-right-nav{
+      padding-top: 1rem;
+    }
+  }
+}

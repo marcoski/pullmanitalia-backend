@@ -6,3 +6,5 @@ dist
 .project
 .settings/
 .vagrant/
+dist
+npm-debug.log

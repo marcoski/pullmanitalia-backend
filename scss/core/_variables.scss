@@ -1,0 +1,31 @@
+//Core Variables
+
+
+$border-color:            $gray-600;
+
+//Nav
+$main-nav-borders: (
+  all: (
+    size:                 2px,
+    style:                solid,
+    color:                $border-color
+  )
+) !default;
+
+//Breadcrumb
+$breadcrumb-borders: (
+  bottom: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  )
+) !default;
+
+//Sheet list
+$sheetList-borders: (
+  bottom: (
+    size:                 3px,
+    style:                solid,
+    color:                $gray-600
+  )
+) !default;
