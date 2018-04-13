@@ -90,6 +90,10 @@ $body-bg:                               #e4e5e6;
 //
 // Font, line-height, and color for body text, headings and more
 
+$font-family-sans-serif:                'Raleway';
+$font-family-monospace:                 'Roboto Mono';
+$font-family-base:                      $font-family-sans-serif;
+
 $font-size-base:                        0.875rem;
 
 //Breadcrumbs

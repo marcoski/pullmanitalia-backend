@@ -50,7 +50,6 @@
 </template>
 
 <script>
-    import Customers from '../../data/_customers';
     import DataTable from "../mixins/DataTable";
 
     export default {
@@ -60,29 +59,34 @@
 
         data: function(){
             return {
-                itemsCount: Customers.count,
+                itemsCount: 0,
             }
         },
 
         methods: {
+            /**
+             * @augments ctx {Object} 
+             * Contains properties:
+             * 1. currentPage {Number} The current page number (starting from 1: the value of the current-page prop)
+             * 2. perPage {Number} The maximum number of rows per page to display (the value of the per-page prop)
+             * 3. filter {String} || {RegExp} || {Function} the value of the filter prop
+             * 4. sortBy {String} The current column key being sorted, or null if no sorting
+             * 5. sortDesc {Boolean} The current sort direction (true for descending, false for ascending)
+             */
             loadItems: function(ctx){
-                /** @todo   USE Axios promises to load items from api server
-                /*          provider pagination is handled by server, for mock object is disabled
-                 */
-                //filter and sorting aren't handled by provider function
-                //Now use mock object
-                let items = this.$refs.datatable.localItems;
-                if(items.length <= 0){
-                    /**
-                     * load with AXIOS only if new...
-                     * The items.length check should not be correct in the real case
-                     * to handle the data table state we need a more sophisticated way (IE use a state props?)
-                     * what happens when the last items is deleted?
-                     */
-                    return Customers.items;
+                let cachedItems = this.$store.getters.allCustomers;
+                if(cachedItems.length > 0 ){
+                    return cachedItems;
                 }
-
-                return this.$refs.datatable.localItems;
+                /** 
+                 * MUST HANDLE pagination, filters and sorting on the server side:
+                 * to do that no-provider-paging, no-provider-sorting, no-provider-filtering props must be disabled or setted to false
+                 */
+                return this.$store.dispatch('loadCustomers', {msg: 'Carico clienti...'}).then(() => {
+                    let items = this.$store.getters.allCustomers;
+                    this.itemsCount = this.$store.getters.countCustomers;
+                    return (items || []);
+                });
             },
 
             doDelete: function(toDeleteElements){

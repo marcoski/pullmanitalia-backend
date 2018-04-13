@@ -29,3 +29,67 @@ $sheetList-borders: (
     color:                $gray-600
   )
 ) !default;
+
+//Scheduler
+$scheduler-header-borders: (
+  top: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  ),
+  left: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  )
+) !default;
+
+$scheduler-body-borders: (
+  top: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  ),
+  bottom: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  ),
+  left: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  )
+) !default;
+
+$scheduler-left: (
+  left: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  ),
+) !default
+
+$scheduler-right: (
+  right: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  ),
+) !default
+
+$scheduler-top: (
+  top: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  ),
+) !default
+
+$scheduler-bottom: (
+  bottom: (
+    size:                 1px,
+    style:                solid,
+    color:                $gray-400
+  ),
+) !default

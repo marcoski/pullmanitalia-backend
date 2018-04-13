@@ -52,14 +52,11 @@
                 <b-btn block class="mb-2" :to="{name: 'view_supplier_invoices', params:{id:item.id, name:urlName}}">
                     <i class="fa fa-file"></i> Visualizza fatture
                 </b-btn>
-                <b-btn block class="mb-2">
+                <b-btn block class="mb-2" :to="{name: 'view_supplier_bookings', params:{id:item.id, name:urlName}}">
                     <i class="fa fa-ticket"></i> Prenotazioni
                 </b-btn>
-                <b-btn block class="mt-3 mb-2">
-                    <i class="fa fa-map-pin"></i> Gestisci Tratte
-                </b-btn>
-                <b-btn block class="mb-2">
-                    <i class="fa fa-bus"></i> Gestisci Pullman
+                <b-btn block class="mb-2" :to="{name: 'view_supplier_pullmans', params:{id:item.id, name:urlName}}">
+                    <i class="fa fa-bus"></i> Pullman
                 </b-btn>
                 <b-btn block class="mt-3">
                     <i class="fa fa-comments"></i> Feedback Utenti

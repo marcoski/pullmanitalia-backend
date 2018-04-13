@@ -6,5 +6,6 @@ dist
 .project
 .settings/
 .vagrant/
-dist
+.vscode/
+public/
 npm-debug.log

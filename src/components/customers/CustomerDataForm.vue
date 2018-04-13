@@ -9,7 +9,7 @@
             <b-row>
                 <b-col>
                     <b-form-group horizontal :label-cols="4" label="Codice Fiscale" label-for="userFiscalCode">
-                        <b-form-input id="userFiscalCode" v-model="item.user.fiscalCode" type="text"></b-form-input>
+                        <b-form-input id="userFiscalCode" v-model="item.fiscalCode" type="text"></b-form-input>
                     </b-form-group>
                 </b-col>
                 <b-col>
@@ -20,8 +20,13 @@
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group horizontal :label-cols="2" label="Codice Univoco" label-for="customerCuu">
+                    <b-form-group horizontal :label-cols="4" label="Codice Univoco" label-for="customerCuu">
                         <b-form-input id="customerCuu" v-model="item.cuu" type="text"></b-form-input>
+                    </b-form-group>
+                </b-col>
+                <b-col>
+                    <b-form-group horizontal :label-cols="4" label="PEC" label-for="customerPecMail">
+                        <b-form-input id="customerPecMail" v-model="item.pecMail" type="text"></b-form-input>
                     </b-form-group>
                 </b-col>
             </b-row>
@@ -108,6 +113,12 @@
             return {
                 item: this.initialCustomer,
             }
+        },
+
+        created: function(){
+            this.$radio.$on('item:loaded', (item) => {
+                this.item = item;
+            })
         }
     };
 </script>

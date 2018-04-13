@@ -7,8 +7,11 @@ export default {
     country: null,
     address: null,
     cap: null,
+    cuu: null,
+    pecMail: null,
+    fiscalCode: null,
+    regimeFiscale: 'RF01',
     vat: null,
-    routes: [],
     pullmans: 0,
     feedBacks: {
         count: 0,
@@ -23,12 +26,16 @@ export default {
         surname: null,
         phone: null,
         mobile: null,
-        fiscalCode: null,
         cap: null,
         address: null,
         district: null,
         country: null,
         city: null
     },
-    bank_account: null
+    bank_account: {
+        beneficiary: null,
+        bank_name: null,
+        bic_swift_code: null,
+        iban: null
+    }
 }

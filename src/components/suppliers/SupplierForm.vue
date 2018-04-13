@@ -2,7 +2,7 @@
     <b-card header-tag="header" footer-tag="footer">
         <div class="d-flex flex-row" slot="header">
             <div class="p-1">
-                <h4><i class="fa fa-user-plus"></i> Nuovo fornitore</h4>
+                <h4><i :class="formTitleIcon"></i> {{ formTitle }}</h4>
             </div>
         </div>
         <div class="d-flew flex-row" slot="footer">
@@ -34,7 +34,6 @@
 </template>
 <script>
 
-    import Suppliers from "../../data/_suppliers";
     import EmptySupplier from "../../data/_empty-supplier";
     import BaseAccountForm from "../mixins/BaseAccountForm";
     import BreadcrumbModifier from "../mixins/BreadcrumbModifier";
@@ -61,11 +60,29 @@
         created: function(){
             if(typeof this.$route.params.id !== "undefined"){
                 let id = this.$route.params.id;
-                /**
-                 * @TODO load customers from api with axios
-                 */
-                let supplier = this.$lodash.find(Suppliers.items, (o) => { return o.id == id});
-                this.setData(supplier);
+                
+                let supplier = this.$store.getters.getSupplierById(id);
+                if(supplier === undefined){
+                    this.$store.dispatch('loadSuppliers', {msg: 'Carico fornitori...'}).then(() => {
+                        let s = this.$store.getters.getSupplierById(id);
+                        this.setData(s);
+                        this.$radio.$emit('item:loaded', s);
+                    });
+                }else{
+                    this.setData(supplier);
+                }
+            }
+        },
+
+        
+
+        methods: {
+            submit: function(){
+                let dispatch = this.$route.params.id !== undefined ? 'updateSupplier' : 'addSupplier';
+                this.$store.dispatch(dispatch, {msg: 'Salvo fornitore...', data: this.item}).then(() => {
+                    this.$radio.$emit('item:changed', this.item);
+                    this.$router.push({name: 'suppliers'});
+                });
             }
         }
     }

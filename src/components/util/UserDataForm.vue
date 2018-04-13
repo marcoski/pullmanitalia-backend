@@ -92,6 +92,12 @@
             }
         },
 
+        created: function(){
+            this.$radio.$on('item:loaded', (item) => {
+                this.item = item;
+            })
+        },
+
         mounted: function(){
             this.$refs.googleMapsAutocomplete.$on('gmaps:autocomplete:place-changed', (data, place, id) => {
                 if(id === 'searchUserAddress'){

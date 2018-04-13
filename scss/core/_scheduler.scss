@@ -1,6 +1,84 @@
 .scheduler{
   .period{
     font-weight: 200;
-    font-size: 22px;
+    font-size: 1.5rem;
+  }
+
+  .scheduler-header{
+    @include borders($scheduler-header-borders);
+    .services{
+      font-size: 1.25rem;
+    }
+  }
+
+  .scheduler-body{
+    @include borders($scheduler-body-borders);
+    .services{
+      font-size: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      height: 170px;
+      line-height: 55px;
+    }
+
+    .day{
+      &.weekend{
+        background-color: map_get($theme-colors, 'warning');
+      }
+      height: 170px;
+    }
+  }
+
+  .services{
+    width: 10%;
+  }
+
+  .calendar-bar{
+    &.dragover{
+      opacity: 0.7;
+    }
+    position: relative;
+    width: 100%;
+    @include borders($scheduler-left);
+
+    .current-month{
+      font-size: 1.25rem;
+      @include borders($scheduler-right);
+    }
+
+    .month-days{
+      .day{
+        @include borders(map_merge($scheduler-right, $scheduler-top));
+      }
+    }
+  }
+
+  .event{
+    &:hover{
+      cursor: move;
+    }
+
+    &.alert-success{
+      background-color: map-get($theme_colors , 'success');
+    }
+
+    padding: 0;
+    position: absolute;
+    z-index: 1000;
+    top: 2px;
+    left: 0;
+    height: 66px;
+
+    h1{
+      font-size: 150%;
+      margin: 0.75em;
+    }
+
+    ul.event-info-list{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
   }
 }

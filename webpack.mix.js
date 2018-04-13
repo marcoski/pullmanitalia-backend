@@ -10,9 +10,13 @@ let mix = require('laravel-mix');
  | file for your application, as well as bundling up your JS files.
  |
  */
-
-mix.js('src/main.js', 'dist/')
-    .sass('scss/main.scss', 'dist/');
+mix.setPublicPath('public');
+mix.setResourceRoot('../');
+mix.js('src/main.js', 'scripts')
+    .sass('scss/main.scss', 'css')
+    .copy('node_modules/font-awesome/fonts/*', 'public/fonts')
+    .copy('scss/icon/fonts/*', 'public/fonts')
+    .sourceMaps();
 
 // Full API
 // mix.js(src, output);
@@ -31,8 +35,8 @@ mix.js('src/main.js', 'dist/')
 // mix.copy(from, to);
 // mix.copyDirectory(fromDir, toDir);
 // mix.minify(file);
-// mix.sourceMaps(); // Enable sourcemaps
-// mix.version(); // Enable versioning.
+//mix.sourceMaps(); // Enable sourcemaps
+//mix.version(); // Enable versioning.
 // mix.disableNotifications();
 // mix.setPublicPath('path/to/public');
 // mix.setResourceRoot('prefix/for/resource/locators');

@@ -10,6 +10,8 @@ export default {
     address: null,
     cap: null,
     cuu: null,
+    fiscalCode: null,
+    pecMail: null,
     vat: null,
     bookings: [],
     user: {
@@ -20,7 +22,6 @@ export default {
         surname: null,
         phone: null,
         mobile: null,
-        fiscalCode: null,
         cap: null,
         address: null,
         district: null,

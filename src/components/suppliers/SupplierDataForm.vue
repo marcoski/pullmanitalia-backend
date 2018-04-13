@@ -9,7 +9,7 @@
             <b-row>
                 <b-col>
                     <b-form-group horizontal :label-cols="4" label="Codice Fiscale" label-for="userFiscalCode">
-                        <b-form-input id="userFiscalCode" v-model="item.user.fiscalCode" type="text"></b-form-input>
+                        <b-form-input id="userFiscalCode" v-model="item.fiscalCode" type="text"></b-form-input>
                     </b-form-group>
                 </b-col>
                 <b-col>
@@ -20,12 +20,24 @@
             </b-row>
             <b-row>
                 <b-col>
-                    <b-form-group horizontal :label-cols="4" label="Nome cliente" label-for="supplierName">
+                    <b-form-group horizontal :label-cols="4" label="Codice Univoco" label-for="supplierCuu">
+                        <b-form-input id="supplierCuu" v-model="item.cuu" type="text"></b-form-input>
+                    </b-form-group>
+                </b-col>
+                <b-col>
+                    <b-form-group horizontal :label-cols="4" label="PEC" label-for="customerPecMail">
+                        <b-form-input id="supplierPecMail" v-model="item.pecMail" type="text"></b-form-input>
+                    </b-form-group>
+                </b-col>
+            </b-row>
+            <b-row>
+                <b-col>
+                    <b-form-group horizontal :label-cols="4" label="Nome fornitore" label-for="supplierName">
                         <b-form-input id="supplierName" v-model="item.name" type="text"></b-form-input>
                     </b-form-group>
                 </b-col>
                 <b-col>
-                    <b-form-group horizontal :label-cols="4" label="Email cliente" label-for="supplierEmail">
+                    <b-form-group horizontal :label-cols="4" label="Email fornitore" label-for="supplierEmail">
                         <b-form-input id="supplierEmail" v-model="item.email" type="text"></b-form-input>
                     </b-form-group>
                 </b-col>
@@ -100,6 +112,12 @@
             return {
                 item: this.initialSupplier,
             }
+        },
+
+        created: function(){
+            this.$radio.$on('item:loaded', (item) => {
+                this.item = item;
+            })
         }
     }
 </script>

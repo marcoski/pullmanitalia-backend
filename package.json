@@ -4,7 +4,9 @@
   "description": "Versione 1.0",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run dev -- -w",
+    "watch-poll": "npm run dev -- -w --watch-poll"
   },
   "repository": {
     "type": "git",
@@ -21,9 +23,13 @@
     "bootstrap-vue": "^1.4.1",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
+    "moment": "^2.21.0",
     "vue": "^2.5.13",
+    "vue-multiselect": "^2.1.0",
+    "vue-quill-editor": "^3.0.5",
     "vue-router": "^3.0.1",
     "vue-select": "^2.4.0",
-    "vuejs-datepicker": "^0.9.26"
+    "vuejs-datepicker": "^0.9.26",
+    "vuex": "^3.0.1"
   }
 }

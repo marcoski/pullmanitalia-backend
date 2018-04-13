@@ -30,6 +30,13 @@
             return {
                 supplier: this.initialSupplier,
             }
+        },
+        
+        created: function(){
+            this.$radio.$on('item:loaded', (item) => {
+                this.supplier = item;
+            });
         }
+
     };
 </script>

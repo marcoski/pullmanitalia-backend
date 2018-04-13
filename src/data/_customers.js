@@ -12,6 +12,7 @@ export default {
             address: 'Via di novella 18',
             cap: '00199',
             cuu: null,
+            pecMail: null,
             vat: null,
             bookings: [],
             user: {
@@ -28,12 +29,6 @@ export default {
                 district: 'RM',
                 country: 'Italia',
                 city: 'Roma'
-            },
-            bank_account: {
-                beneficiary: 'Marco Trognoni',
-                bank_name: 'UBI Banca',
-                bic_swift_code: 'BLOPIT22XXX',
-                iban: 'IT98W000000119987'
             }
         },
         {
@@ -48,6 +43,7 @@ export default {
             address: 'Via di Novella, 18',
             cap: '00199',
             cuu: null,
+            pecMail: null,
             vat: null,
             bookings: [],
             user: {
@@ -64,45 +60,39 @@ export default {
                 district: 'RM',
                 country: 'Italia',
                 city: 'Roma'
-            },
-            bank_account: {
-                beneficiary: 'Marco Trognoni',
-                bank_name: 'UBI Banca',
-                bic_swift_code: 'BLOPIT22XXX',
-                iban: 'IT98W000000119987'
             }
 
         },
         {
             id: 3,
-            name: 'Liceo Scientifico G.Galilei',
+            name: 'Istituto comprensivo - via carrotenuto 30',
             trusted: true,
-            email: 'info@galilei.edu.it',
+            email: 'rmic8cz006@pec.istruzione.it',
             feedback: 110,
-            city: 'Macerata',
+            city: 'Roma',
             district: 'RM',
             country: 'Italia',
-            address: 'Via Manzoni, 95',
-            cap: '62100',
-            cuu: 'UF98GX',
+            address: 'Via Carrotenuto, 30',
+            cap: '00125',
+            cuu: 'UF7F0z',
+            pecMail: 'rmic8cz006@pec.istruzione.it',
             vat: null,
             bookings: [],
             user: {
                 id: 3,
-                email: 'mario.rossi@gmail.com',
+                email: 'lina.porrello@gmail.com',
                 avatar: '',
-                name: 'Mario',
-                surname: 'Rossi',
-                phone: '3286115551',
-                mobile: '3286115551',
-                fiscalCode: 'TRGMRC83H07W06H4',
-                cap: '62100',
-                address: 'Via A.Campanile, 54',
-                district: 'RM',
-                country: 'Italia',
-                city: 'Macerata'
+                name: 'Lina',
+                surname: 'Porrello',
+                phone: '',
+                mobile: '',
+                fiscalCode: '',
+                cap: '',
+                address: '',
+                district: '',
+                country: '',
+                city: ''
             },
-            bank_account: null
         },
         {
             id: 4,
@@ -116,6 +106,7 @@ export default {
             address: 'Via Manzoni, 95',
             cap: '62100',
             cuu: 'UF98GX',
+            pecMail: null,
             vat: null,
             bookings: [],
             user: {
@@ -133,7 +124,6 @@ export default {
                 country: 'Italia',
                 city: 'Macerata'
             },
-            bank_account: null
         },
         {
             id: 5,
@@ -147,6 +137,7 @@ export default {
             address: 'Via Manzoni, 95',
             cap: '62100',
             cuu: 'UF98GX',
+            pecMail: null,
             vat: null,
             bookings: [],
             user: {
@@ -164,7 +155,6 @@ export default {
                 country: 'Italia',
                 city: 'Macerata'
             },
-            bank_account: null
         },
         {
             id: 6,
@@ -178,6 +168,7 @@ export default {
             address: 'Via Manzoni, 95',
             cap: '62100',
             cuu: 'UF98GX',
+            pecMail: 'mcps02000n@pec.istruzione.it',
             vat: null,
             bookings: [],
             user: {
@@ -195,7 +186,6 @@ export default {
                 country: 'Italia',
                 city: 'Macerata'
             },
-            bank_account: null
         },
         {
             id: 7,
@@ -209,6 +199,7 @@ export default {
             address: 'Via Manzoni, 95',
             cap: '62100',
             cuu: 'UF98GX',
+            pecMail: 'mcps02000n@pec.istruzione.it',
             vat: null,
             bookings: [],
             user: {
@@ -226,7 +217,6 @@ export default {
                 country: 'Italia',
                 city: 'Macerata'
             },
-            bank_account: null
         },
         {
             id: 8,
@@ -240,6 +230,7 @@ export default {
             address: 'Via Manzoni, 95',
             cap: '62100',
             cuu: 'UF98GX',
+            pecMail: 'mcps02000n@pec.istruzione.it',
             vat: null,
             bookings: [],
             user: {
@@ -257,7 +248,6 @@ export default {
                 country: 'Italia',
                 city: 'Macerata'
             },
-            bank_account: null
         },
         {
             id: 9,
@@ -271,6 +261,7 @@ export default {
             address: 'Via Manzoni, 95',
             cap: '62100',
             cuu: 'UF98GX',
+            pecMail: 'mcps02000n@pec.istruzione.it',
             vat: null,
             bookings: [],
             user: {
@@ -288,7 +279,6 @@ export default {
                 country: 'Italia',
                 city: 'Macerata'
             },
-            bank_account: null
         },
         {
             id: 10,
@@ -302,6 +292,7 @@ export default {
             address: 'Via Manzoni, 95',
             cap: '62100',
             cuu: 'UF98GX',
+            pecMail: 'mcps02000n@pec.istruzione.it',
             vat: null,
             bookings: [],
             user: {
@@ -319,7 +310,6 @@ export default {
                 country: 'Italia',
                 city: 'Macerata'
             },
-            bank_account: null
         },
     ],
     count: 10

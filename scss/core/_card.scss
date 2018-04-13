@@ -63,7 +63,15 @@
   }
 
   &.app-sheet{
+    .icon{
+      font-size: 2em;
+    }
+
     dl.sheet-block{
+      &.sheet-pullman-service dd{
+        line-height: 40px;
+      }
+      
       &:last-child{
         border: 0;
       }

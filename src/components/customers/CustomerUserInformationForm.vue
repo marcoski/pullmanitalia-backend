@@ -34,6 +34,12 @@
             return {
                 customer: this.initialCustomer,
             }
+        },
+
+        created: function(){
+            this.$radio.$on('item:loaded', (item) => {
+                this.customer = item;
+            })
         }
     };
 </script>

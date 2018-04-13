@@ -45,37 +45,66 @@
             }
         },
 
+        created: function(){
+            this.$radio.$on('item:loaded', (item) => {
+                this.item = item;
+            })
+        },
+
         computed: {
-            beneficary: function(){
-                if(this.item.bank_account === null){
-                    return '';
-                }
+            beneficary: {
+                get: function(){
+                    if(this.item.bank_account === null){
+                        return '';
+                    }
 
-                return this.item.bank_account.beneficiary;
+                    return this.item.bank_account.beneficiary;
+                },
+
+                set: function(beneficary){
+                    this.item.bank_account.beneficary = beneficary;
+                }
             },
 
-            bank_name: function(){
-                if(this.item.bank_account === null){
-                    return '';
-                }
+            bank_name: {
+                get: function(){
+                    if(this.item.bank_account === null){
+                        return '';
+                    }
 
-                return this.item.bank_account.bank_name;
+                    return this.item.bank_account.bank_name;
+                },
+
+                set: function(bankName){
+                    this.item.bank_account.bank_name = bankName;
+                }
             },
 
-            bic_swift_code: function(){
-                if(this.item.bank_account === null){
-                    return '';
-                }
+            bic_swift_code: {
+                get: function(){
+                    if(this.item.bank_account === null){
+                        return '';
+                    }
 
-                return this.item.bank_account.bic_swift_code;
+                    return this.item.bank_account.bic_swift_code;
+                },
+
+                set: function(bicSwift){
+                    this.item.bank_account.bic_swift_code = bicSwift;
+                }
             },
+            iban: {
+                get: function(){
+                    if(this.item.bank_account === null){
+                        return '';
+                    }
 
-            iban: function(){
-                if(this.item.bank_account === null){
-                    return '';
+                    return this.item.bank_account.iban;
+                },
+
+                set: function(iban){
+                    this.item.bank_account.iban;
                 }
-
-                return this.item.bank_account.iban;
             }
         }
     };

@@ -1,0 +1,50 @@
+.loading-page{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparentize($gray-800, 0.2);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+
+    .loader{
+        &::before,  &::after{
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: map_get($theme-colors, 'danger');
+            position: absolute;
+            animation: load 1s infinite alternate ease-in-out;
+        }
+        &::before{
+            top: 0;
+        }
+        &::after{
+            bottom: 0;
+        }
+        font-size: 40px;
+        font-weight: 800;
+        color: map_get($theme-colors, 'danger');
+        height: 50px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+    }
+}
+
+@keyframes load {
+    0% {
+        left: 10%; 
+        width: 50px;
+    }
+    50% {
+        width: 100px;
+    }
+    100% {
+        left: 90%;
+        width: 50px;
+    }
+}

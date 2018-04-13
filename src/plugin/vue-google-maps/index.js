@@ -1,6 +1,9 @@
 import {initErrorHandling} from "./util/error";
 import GMapsLoader from "./loader";
 import Autocomplete from "./components/Autocomplete";
+import Map from "./components/Map";
+import Marker from "./components/Marker";
+import Directions from "./components/Directions";
 
 function optionMergeStrategies(Vue){
     const strats = Vue.config.optionMergeStrategies;
@@ -9,11 +12,17 @@ function optionMergeStrategies(Vue){
 }
 
 export {
-    Autocomplete
+    Autocomplete,
+    Marker,
+    Directions,
+    Map
 }
 
 function registerComponents(Vue, prefix){
     Vue.component(`${prefix}autocomplete`, Autocomplete);
+    Vue.component(`${prefix}marker`, Marker);
+    Vue.component(`${prefix}directions`, Directions);
+    Vue.component(`${prefix}map`, Map);
 }
 
 const GoogleMapsPlugin = {

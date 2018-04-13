@@ -42,6 +42,12 @@
             }
         },
 
+        created: function(){
+            this.$radio.$on('item:loaded', (item) => {
+                this.item = item;
+            })
+        },
+
         mounted: function(){
             const _that = this;
             this.$radio.$on('avatar_modal:selected', function(avatar){

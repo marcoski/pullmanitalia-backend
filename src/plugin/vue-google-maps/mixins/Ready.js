@@ -4,7 +4,7 @@ import {handleError} from "../util/error";
 export default {
     data: function(){
         return {
-            googleMapsRady: false
+            googleMapsReady: false
         }
     },
 

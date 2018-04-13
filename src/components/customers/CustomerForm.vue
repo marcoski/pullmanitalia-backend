@@ -2,7 +2,7 @@
     <b-card header-tag="header" footer-tag="footer">
         <div class="d-flex flex-row" slot="header">
             <div class="p-1">
-                <h4><i class="fa fa-user-plus"></i> Nuovo cliente</h4>
+                <h4><i class="fa fa-user-plus"></i> {{ formTitle }}</h4>
             </div>
         </div>
         <div class="d-flew flex-row" slot="footer">
@@ -33,7 +33,6 @@
     </b-card>
 </template>
 <script>
-    import Customers from "../../data/_customers";
     import BaseAccountForm from "../mixins/BaseAccountForm";
     import BreadcrumbModifier from "../mixins/BreadcrumbModifier";
     import EmptyCustomer from "../../data/_empty-customer";
@@ -59,11 +58,28 @@
         created: function(){
             if(typeof this.$route.params.id !== "undefined"){
                 let id = this.$route.params.id;
-                /**
-                 * @TODO load customers from api with axios
-                 */
-                let customer = this.$lodash.find(Customers.items, (o) => { return o.id == id});
-                this.setData(customer);
+                
+                let customer = this.$store.getters.getCustomerById(id);
+                if(customer === undefined){
+                    this.$store.dispatch('loadCustomers', {msg: 'Carico clienti...'}).then(() => {
+                        let c = this.$store.getters.getCustomerById(id);
+                        this.setData(c);
+                        this.$radio.$emit('item:loaded', c);
+                    });
+                }else{
+                    this.setData(customer);
+                }
+            }
+        },
+
+        methods: {
+            submit: function(){
+                let dispatch = this.$route.params.id !== undefined ? 'updateCustomer' : 'addCustomer';
+                this.$store.dispatch(dispatch, {msg: 'Salvo cliente', data: this.item}).then(() => {
+                    this.$radio.$emit('item:changed', this.item);
+                    this.$route.push({name: 'customers'});
+                });
+                
             }
         }
     }

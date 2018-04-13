@@ -12,7 +12,9 @@ export default{
     data: function(){
         return {
             formBtnLabel: 'Aggiungi',
-            formBtnIcon: 'fa fa-plus'
+            formBtnIcon: 'fa fa-plus',
+            formTitle: 'Nuovo Fornitore',
+            formTitleIcon: 'fa fa-user-plus'
         }
     },
 
@@ -21,10 +23,8 @@ export default{
             this.item = item;
             this.formBtnLabel = 'Modifica';
             this.formBtnIcon = 'fa fa-edit';
-        },
-
-        submit: function(){
-            console.log(this.item);
+            this.formTitle = 'Modifica: ' + this.item.name;
+            this.formTitleIcon = 'fa fa-user';
         }
     }
 }

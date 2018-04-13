@@ -8,4 +8,12 @@
     margin-right: 0;
     padding-left: .75rem;
   }
+
+  .icon{
+    &:last-child{
+      margin-right: 0;
+    }
+    font-size: 2em;
+    margin-right: 0.5em;
+  }
 }
