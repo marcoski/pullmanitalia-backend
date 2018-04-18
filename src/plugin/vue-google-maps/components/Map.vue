@@ -98,7 +98,7 @@ export default {
         },
         bounds: {
             type: Array,
-            default: []
+            default: () => ([])
         }
     },
 
@@ -120,6 +120,10 @@ export default {
         this.$_map = new window.google.maps.Map(element, options);
         if(this.bounds.length === 0){
             this.$_map.setCenter(this.center);
+            this.listen(this.$_map, 'resize', () => {
+                console.log('resize');
+                this.$_map.setCenter(this.center);
+            });
         }else{
             var latLngBounds = new google.maps.LatLngBounds();
             for(const bound of this.bounds){
@@ -129,6 +133,7 @@ export default {
             this.$_map.setCenter(latLngBounds.getCenter());
             this.listen(this.$_map, 'resize', () => {
                 this.$_map.setZoom(getZoomByBounds(this.$_map, latLngBounds));
+                this.$radio.$emit('gmaps:updated');
             });
         }
 

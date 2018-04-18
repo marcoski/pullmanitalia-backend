@@ -55,6 +55,14 @@ export default {
         }
     },
 
+    created: function(){
+        this.$radio.$on('gmaps:updated', () => {
+            const options = Object.assign({}, this.$props);
+            const routePromise = this.route(options);
+            routePromise.then(this.onRouteComplete);
+        });
+    },
+
     methods: {
         route: function(options){
             return new Promise((resolve) => {

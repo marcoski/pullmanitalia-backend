@@ -1,58 +1,45 @@
 export default {
     items: [
         {
-            id: 16885,
-            booking: 9604,
-            code: 'Q9A3X5',
-            color: null,
-            passengers: 53,
-            type: 1,
-            cost: 387.00,
+            "id": 16885,
+            "booking": 9605,
+            "cost": "1563.02",
+            "type": 2,
+            "passengers": "25",
+            "code": "Y1TJP9",
+            "color": null
         },
         {
-            id: 16878,
-            booking: 9604,
-            code: 'Q9A3X5',
-            color: null,
-            passengers: 25,
-            type: 1,
-            cost: 300.00,
+            "id": 16878,
+            "cost": "327.90",
+            "type": 1,
+            "passengers": "25",
+            "code": "T9B9L5",
+            "color": null
         },
         {
-            id: 16881,
-            booking: 9608,
-            code: '3BBB8C',
-            color: null,
-            passengers: 52,
-            type: 2,
-            cost: 259.00
+            "id": 16879,
+            "cost": "345.00",
+            "type": 1,
+            "passengers": "25",
+            "code": "T9B9L5",
+            "color": null
         },
         {
-            id: 16879,
-            booking: 9605,
-            code: 'Q9A3X5',
-            color: null,
-            passengers: 53,
-            type: 1,
-            cost: 387.00
+            "id": 16880,
+            "cost": "462.90",
+            "type": 1,
+            "passengers": "25",
+            "code": "T9B9L5",
+            "color": null,
         },
         {
-            id: 16882,
-            booking: 9606,
-            code: 'Q8B3E4',
-            color: null,
-            passenger: 53,
-            type: 1,
-            cost: 410.00
-        },
-        {
-            id: 16880,
-            booking: 9606,
-            code: 'Q8B3E4',
-            color: null,
-            passenger: 53,
-            type: 1,
-            cost: 410.00
+            "id": 16881,
+            "cost": "762.60",
+            "type": 0,
+            "passengers": "70",
+            "code": "O0MN4P",
+            "color": null
         }
     ]
 }

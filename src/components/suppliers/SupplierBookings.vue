@@ -13,12 +13,12 @@
             </pullmans-booking-calendar>
         </b-container>
         <!--<booking-modal ref="bookingModal" :booking="selectedBooking" :center="selectedBookingPullmanLoc"></booking-modal>-->
-        <rental-modal ref="rentalModal"></rental-modal>
+        <rental-modal v-if="showModal" :event="selectedEvent" ref="rentalModal"></rental-modal>
     </b-card>
 </template>
 <script>
     import BreadcrumbModifier from "../mixins/BreadcrumbModifier";
-    import PullmansBookingCalendar from "../util/PullmansBookingCalendar"
+    import PullmansBookingCalendar from "../calendar/PullmansBookingCalendar"
     import RentalModal from '../util/RentalModal';
 
     export default{
@@ -31,6 +31,8 @@
                 pullmans: [],
                 pullmansCount: 0,
                 calendarEvents: [],
+                showModal: false,
+                selectedEvent: null
             }
         },
 
@@ -95,14 +97,11 @@
             },
 
             onClickEvent: function(event){
-                console.log(JSON.parse(JSON.stringify(event)));
-                /*let actualPullman = this.pullmans.filter((p) => (p.id == event.pullman))[0];
-                this.selectedBooking = actualPullman.bookings.filter((b) => (b.id == event.booking))[0];
-                this.selectedBookingPullmanLoc = {
-                    lat: actualPullman.loc.lat,
-                    lng: actualPullman.loc.lng
-                };*/
-                this.$refs.rentalModal.open(event);
+                this.selectedEvent = event;
+                this.showModal = true;
+                this.$nextTick(() => {
+                    this.$refs.rentalModal.open();
+                });
             }
         }
     }

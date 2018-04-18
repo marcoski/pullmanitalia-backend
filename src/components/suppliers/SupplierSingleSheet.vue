@@ -1,8 +1,41 @@
 <template>
     <b-card :class="[isVisible ? 'app-sheet visible' : 'app-sheet invisible']">
         <b-row>
-            <b-col md="6">
+            <b-col md="7">
                 <h3><i :class="getFeedbackIcon(item)"></i> {{item.id}}# {{ item.name }}</h3>
+            </b-col>
+            <b-col md="5">
+                <div class="text-warning">
+                    <span class="font-2xl" v-for="c in stars">
+                        <i :class="c"></i>
+                    </span>
+                </div>
+            </b-col>
+        </b-row>
+        <b-row class="mt-3">
+            <b-col> 
+                <b-btn :to="{name: 'edit_supplier', params: {id:item.id, name:urlName}}">
+                    <i class="fa fa-edit"></i>
+                </b-btn>
+                <b-btn @click.native.stop @click="deleteModalOpen">
+                    <i class="fa fa-trash"></i>
+                </b-btn>
+                <b-btn :to="{name: 'view_supplier_invoices', params:{id:item.id, name:urlName}}">
+                    <i class="fa fa-file"></i>
+                </b-btn>
+                <b-btn :to="{name: 'view_supplier_bookings', params:{id:item.id, name:urlName}}">
+                    <i class="fa fa-ticket"></i>
+                </b-btn>
+                <b-btn :to="{name: 'view_supplier_pullmans', params:{id:item.id, name:urlName}}">
+                    <i class="fa fa-bus"></i>
+                </b-btn>
+                <b-btn>
+                    <i class="fa fa-comments"></i>
+                </b-btn>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col>
                 <dl class="row sheet-block">
                     <dt class="col-sm-4">Email:</dt>
                     <dd class="col-sm-8"><b-btn size="sm"><i class="fa fa-envelope"></i> {{ item.email }}</b-btn></dd>
@@ -33,34 +66,6 @@
                         <dd class="col-sm-8">{{ item.bank_account.bic_swift_code }}</dd>
                     </dl>
                 </template>
-            </b-col>
-            <b-col md="6">
-                <div class="text-right">
-                    <b-btn :to="{name: 'edit_supplier', params: {id:item.id, name:urlName}}">
-                        <i class="fa fa-edit"></i> Modifica
-                    </b-btn>
-                    <b-btn @click.native.stop @click="deleteModalOpen">
-                        <i class="fa fa-trash"></i> Elimina
-                    </b-btn>
-                </div>
-                <div class="text-warning text-right mt-3">
-                    <span class="font-5xl" v-for="c in stars">
-                        <i :class="c"></i>
-                    </span>
-                </div>
-                <b-img thumbnail class="mt-3 mb-3" width="254" height="254" :src="personalAvatar" />
-                <b-btn block class="mb-2" :to="{name: 'view_supplier_invoices', params:{id:item.id, name:urlName}}">
-                    <i class="fa fa-file"></i> Visualizza fatture
-                </b-btn>
-                <b-btn block class="mb-2" :to="{name: 'view_supplier_bookings', params:{id:item.id, name:urlName}}">
-                    <i class="fa fa-ticket"></i> Prenotazioni
-                </b-btn>
-                <b-btn block class="mb-2" :to="{name: 'view_supplier_pullmans', params:{id:item.id, name:urlName}}">
-                    <i class="fa fa-bus"></i> Pullman
-                </b-btn>
-                <b-btn block class="mt-3">
-                    <i class="fa fa-comments"></i> Feedback Utenti
-                </b-btn>
             </b-col>
         </b-row>
         <warning-modal-delete

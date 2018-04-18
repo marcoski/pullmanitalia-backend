@@ -50,11 +50,24 @@
     .month-days{
       .day{
         @include borders(map_merge($scheduler-right, $scheduler-top));
+        cursor: pointer;
       }
     }
   }
 
   .event{
+    &.trf{
+      border-bottom: 3px solid map-get($colors, 'indigo');
+    }
+
+    &.tour{
+      border-bottom: 3px solid map-get($colors, 'orange');
+    }
+
+    &.disp{
+      border-bottom: 3px solid map-get($colors, 'teal');
+    }
+
     &:hover{
       cursor: move;
     }
@@ -71,8 +84,10 @@
     height: 66px;
 
     h1{
+      position: absolute;
+      top: 8px;
+      left: 8px;
       font-size: 150%;
-      margin: 0.75em;
     }
 
     ul.event-info-list{

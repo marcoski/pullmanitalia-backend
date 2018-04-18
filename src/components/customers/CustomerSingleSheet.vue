@@ -1,8 +1,22 @@
 <template>
     <b-card :class="[isVisible ? 'app-sheet visible' : 'app-sheet invisible']">
         <b-row>
-            <b-col md="6">
+            <b-col md="8">
                 <h3><i :class="{'fa': true, 'fa-star': true, 'text-warning': item.trusted }"></i> {{ item.name }}</h3>
+            </b-col>
+            <b-col md="4">
+                <div class="text-right">
+                    <b-btn :to="{name: 'edit_customer', params: {id:item.id, name:urlName}}">
+                        <i class="fa fa-edit"></i>
+                    </b-btn>
+                    <b-btn @click.native.stop @click="deleteModalOpen">
+                        <i class="fa fa-trash"></i>
+                    </b-btn>
+                </div>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col>
                 <dl class="row sheet-block">
                     <dt class="col-sm-4">Email:</dt>
                     <dd class="col-sm-8"><b-btn size="sm"><i class="fa fa-envelope"></i> {{ item.email }}</b-btn></dd>
@@ -36,23 +50,16 @@
                     </dl>
                 </template>
             </b-col>
-            <b-col md="6">
-                <div class="text-right">
-                    <b-btn :to="{name: 'edit_customer', params: {id:item.id, name:urlName}}">
-                        <i class="fa fa-edit"></i> Modifica
-                    </b-btn>
-                    <b-btn @click.native.stop @click="deleteModalOpen">
-                        <i class="fa fa-trash"></i> Elimina
-                    </b-btn>
-                </div>
-                <b-img thumbnail class="mt-3 mb-3" width="254" height="254" :src="personalAvatar" />
-                <b-btn block class="mb-2" :to="{name: 'view_customer_invoices', params: {id:item.id, name:urlName}}">
-                    <i class="fa fa-file"></i> Visualizza fatture
+        </b-row>
+        <b-row>
+            <b-col>
+                <b-btn :to="{name: 'view_customer_invoices', params: {id:item.id, name:urlName}}">
+                    <i class="fa fa-file"></i> Fatture
                 </b-btn>
-                <b-btn class="mb-2" block>
+                <b-btn>
                     <i class="fa fa-ticket"></i> Prenotazioni
                 </b-btn>
-                <b-btn block class="mt-2">
+                <b-btn>
                     <i class="fa fa-comments"></i> Feedback
                 </b-btn>
             </b-col>
