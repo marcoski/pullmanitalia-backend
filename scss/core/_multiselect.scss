@@ -1,7 +1,0 @@
-.multiselect__tag, .multiselect__option--highlight::after{
-    background: map-get($theme-colors, 'success');
-}
-
-.multiselect__option--selected.multiselect__option--highlight::after{
-    background: map-get($theme-colors, 'danger');
-}
